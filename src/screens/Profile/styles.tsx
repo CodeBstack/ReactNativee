@@ -43,6 +43,5 @@ export const styles = StyleSheet.create({
     width: 121,
     height: 121,
     borderRadius: 110,
-    marginTop: 34,
   },
 });

@@ -5,7 +5,7 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#fff',
     marginTop:
       StatusBar.currentHeight &&
@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 18,
   },
+  
   subContainer: {
     marginTop: 20,
   },
@@ -50,7 +51,5 @@ export const styles = StyleSheet.create({
   flatList: {
     paddingLeft: 5,
     paddingRight: 6,
-    // flexDirection: 'column',
-    // gap: 25,
   },
 });

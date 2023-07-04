@@ -16,8 +16,8 @@ import {
 
 const EventTab = () => {
   return (
-    <ScrollView
-      contentContainerStyle={{
+    <View
+      style={{
         paddingBottom: 50,
       }}
     >
@@ -91,6 +91,7 @@ const EventTab = () => {
           style={{
             flexDirection: 'row',
             position: 'absolute',
+            alignItems: 'center',
             bottom: 6,
             left: 10,
             gap: 2,
@@ -205,34 +206,36 @@ const EventTab = () => {
         </Text>
       </View>
 
-      <View
-        style={{
-          backgroundColor: '#000',
-          borderRadius: 20,
-          flexDirection: 'row',
-          gap: 6,
-          alignItems: 'center',
-          paddingVertical: 6,
-          paddingHorizontal: 10,
-          maxWidth: 100,
-        }}
-      >
-        <FontAwesome
-          name="bell-o"
-          size={16}
-          color="white"
-        />
-        <Text
+      <View>
+        <View
           style={{
-            fontSize: 12,
-            fontWeight: '600',
-            color: '#ffffff',
+            backgroundColor: '#000',
+            borderRadius: 20,
+            flexDirection: 'row',
+            gap: 8,
+            alignItems: 'center',
+            paddingVertical: 6,
+            paddingHorizontal: 10,
+            // display:'flex'
           }}
         >
-          Remind me
-        </Text>
+          <FontAwesome
+            name="bell-o"
+            size={16}
+            color="white"
+          />
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: '600',
+              color: '#ffffff',
+            }}
+          >
+            Remind me
+          </Text>
+        </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

@@ -3,6 +3,7 @@ import {
   Text,
   SafeAreaView,
   Image,
+  ScrollView,
 } from 'react-native';
 import { styles } from './styles';
 import { StackList } from '../../../App';
@@ -15,7 +16,7 @@ import {
 } from '@expo/vector-icons';
 import FollowButton from '../../components/FollowButton';
 import MessageButton from '../../components/MessageButton';
-import Tab from './widgets/Tab';
+import Tab from './wdgets/Tab';
 
 type ProfileProps = NativeStackScreenProps<
   StackList,
@@ -35,6 +36,7 @@ const Profile = ({
           position: 'absolute',
         }}
       ></View>
+
       <SafeAreaView style={styles.container}>
         <View style={styles.navContainer}>
           <View style={styles.navigation}>
@@ -61,143 +63,65 @@ const Profile = ({
           />
         </View>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+        <ScrollView
+          contentContainerStyle={{
+            zIndex: 100,
           }}
+          showsVerticalScrollIndicator={false}
         >
-          <View style={styles.profilePicture}>
-            <Image
-              style={{ borderRadius: 110 }}
-              source={require('../../../assets/images/profile-picture.png')}
-            />
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 34,
+            }}
+          >
+            <View style={styles.profilePicture}>
+              <Image
+                style={{ borderRadius: 110 }}
+                source={require('../../../assets/images/profile-picture.png')}
+              />
+            </View>
+
+            <View
+              style={{
+                alignSelf: 'flex-end',
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 10,
+              }}
+            >
+              <MessageButton />
+              <FollowButton />
+            </View>
           </View>
 
           <View
             style={{
-              alignSelf: 'flex-end',
               flexDirection: 'row',
               alignItems: 'center',
-              gap: 10,
+              marginTop: 25,
+              gap: 2,
             }}
           >
-            <MessageButton />
-            <FollowButton />
+            <Text
+              style={{
+                color: '#2E2F3A',
+                fontWeight: '700',
+                fontSize: 20,
+                zIndex: 1000,
+              }}
+            >
+              General Joe
+            </Text>
+
+            <MaterialIcons
+              name="verified"
+              size={24}
+              color="#34A853"
+            />
           </View>
-        </View>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginTop: 25,
-            gap: 2,
-          }}
-        >
-          <Text
-            style={{
-              color: '#2E2F3A',
-              fontWeight: '700',
-              fontSize: 20,
-            }}
-          >
-            General Joe
-          </Text>
-
-          <MaterialIcons
-            name="verified"
-            size={24}
-            color="#34A853"
-          />
-        </View>
-        <Text
-          style={{
-            color: '#000000',
-            opacity: 0.5,
-            fontWeight: '400',
-            fontSize: 12,
-          }}
-        >
-          @joeotabor
-        </Text>
-
-        <Text
-          style={{
-            color: '#000000',
-            fontWeight: '400',
-            fontSize: 12,
-            marginVertical: 10,
-          }}
-        >
-          Founder/CEO at Taron App.{' '}
-        </Text>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: 40,
-          }}
-        >
-          <View>
-            <Text
-              style={{
-                fontSize: 18,
-                color: '#000',
-                fontWeight: '600',
-              }}
-            >
-              36k
-            </Text>
-            <Text
-              style={{
-                color: '#000000',
-                opacity: 0.5,
-                fontWeight: '400',
-                fontSize: 12,
-              }}
-            >
-              Followers
-            </Text>
-          </View>
-          <View>
-            <Text
-              style={{
-                fontSize: 18,
-                color: '#000',
-                fontWeight: '600',
-              }}
-            >
-              99
-            </Text>
-            <Text
-              style={{
-                color: '#000000',
-                opacity: 0.5,
-                fontWeight: '400',
-                fontSize: 12,
-              }}
-            >
-              Events
-            </Text>
-          </View>
-        </View>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginTop: 10,
-            marginBottom: 42,
-            gap: 2,
-          }}
-        >
-          <EvilIcons
-            name="location"
-            size={14}
-            color="#34A853"
-          />
           <Text
             style={{
               color: '#000000',
@@ -206,11 +130,99 @@ const Profile = ({
               fontSize: 12,
             }}
           >
-            Lagos, Nigeria
+            @joeotabor
           </Text>
-        </View>
 
-        <Tab />
+          <Text
+            style={{
+              color: '#000000',
+              fontWeight: '400',
+              fontSize: 12,
+              marginVertical: 10,
+            }}
+          >
+            Founder/CEO at Taron App.{' '}
+          </Text>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 40,
+            }}
+          >
+            <View>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: '#000',
+                  fontWeight: '600',
+                }}
+              >
+                36k
+              </Text>
+              <Text
+                style={{
+                  color: '#000000',
+                  opacity: 0.5,
+                  fontWeight: '400',
+                  fontSize: 12,
+                }}
+              >
+                Followers
+              </Text>
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: '#000',
+                  fontWeight: '600',
+                }}
+              >
+                99
+              </Text>
+              <Text
+                style={{
+                  color: '#000000',
+                  opacity: 0.5,
+                  fontWeight: '400',
+                  fontSize: 12,
+                }}
+              >
+                Events
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: 10,
+              marginBottom: 42,
+              gap: 2,
+            }}
+          >
+            <EvilIcons
+              name="location"
+              size={14}
+              color="#34A853"
+            />
+            <Text
+              style={{
+                color: '#000000',
+                opacity: 0.5,
+                fontWeight: '400',
+                fontSize: 12,
+              }}
+            >
+              Lagos, Nigeria
+            </Text>
+          </View>
+
+          <Tab />
+        </ScrollView>
       </SafeAreaView>
     </>
   );

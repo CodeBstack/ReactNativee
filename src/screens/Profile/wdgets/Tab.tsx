@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import EventTab from './EventTab';
 import InterestsTab from './InterestsTab';
@@ -53,15 +54,23 @@ const Tab = () => {
     useState(1);
   return (
     <>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          maxWidth: '90%',
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
           gap: 38,
           alignItems: 'center',
           marginBottom: 42,
+          overflow: 'visible',
         }}
+        // style={{
+        //   flexDirection: 'row',
+        //   justifyContent: 'space-between',
+        //   maxWidth: '90%',
+        //   gap: 38,
+        //   alignItems: 'center',
+        //   marginBottom: 42,
+        // }}
       >
         {steps.map((step) => (
           <TouchableOpacity
@@ -82,7 +91,7 @@ const Tab = () => {
             </Text>
           </TouchableOpacity>
         ))}
-      </View>
+      </ScrollView>
       <>
         {
           stepComponents[
